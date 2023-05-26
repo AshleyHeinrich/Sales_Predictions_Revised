@@ -87,7 +87,9 @@ Another recommendation is to look further into Type 3 markets and how they are a
 
 Limitations of this project include the quantities of missing data that had to be imputed and their subsequent effect on the integrity of the data. The lack of access to the retailer for general clarification questions/verification and the assumptions that had to be made on their behalf. Finally, the limitations of the regression models working with this dataset and that other models may or may not have performed better. 
  
+## Linear Regression Coefficients Plot:
 
+![Linear Regression Coefficients Plot](images/lr_coef_.png)
 
 
 
