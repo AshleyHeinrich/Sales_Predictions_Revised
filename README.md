@@ -96,6 +96,7 @@ Limitations of this project include the quantities of missing data that had to b
 * The coefficients also became more reasonable. 
 * Supermarket type 3, Location type Tier 1,2 & 3 and Supermarket type 1 are the top 5 positively correlated features with the target. An increase in these will increase output sales. 
 
+**Feature Importance:**
 
 ![Regression Tree Model Feature Importance](images/feat_import.png)
 
