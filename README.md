@@ -107,11 +107,15 @@ Limitations of this project include the quantities of missing data that had to b
 
 ## Shap:
 
+**Summary Bar Version**
+
 ![Shap Summary Bar Version](images/shap_bar.png)
 
 **Comparison**
 
 * The top SHAP features are the same as the top features in original model/feature importances. 
+
+**Summary Dot Version**
 
 ![Shap Summar Dot Version](images/shap_dot.png)
 
