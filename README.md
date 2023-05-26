@@ -87,9 +87,75 @@ Another recommendation is to look further into Type 3 markets and how they are a
 
 Limitations of this project include the quantities of missing data that had to be imputed and their subsequent effect on the integrity of the data. The lack of access to the retailer for general clarification questions/verification and the assumptions that had to be made on their behalf. Finally, the limitations of the regression models working with this dataset and that other models may or may not have performed better. 
  
-## Linear Regression Coefficients Plot:
+## Coefficients Plot and Feature Importance:
 
 ![Linear Regression Coefficients Plot](images/lr_coef_.png)
 
+**Interpretation:**
+* By removing the outlet identifier and establishment year columns, the models R2 values remained the same and the model relied on categorical columns like supermarket type 3 and the outlet location type tiers to predict. 
+* The coefficients also became more reasonable. 
+* Supermarket type 3, Location type Tier 1,2 & 3 and Supermarket type 1 are the top 5 positively correlated features with the target. An increase in these will increase output sales. 
 
 
+![Regression Tree Model Feature Importance](images/feat_import.png)
+
+**Interpretation:**
+* Outlet Supermarket type 3 is in the top 5 of this model and was the feature linear regression relied on the most. 
+* Outlet type Grocery store was negatively correlated in the LR model yet still significant. 
+* The tree models most important features are the items MRP, then the Outlet Type Grocery store and finally Supermarket type 3 then  type 1. 
+
+## Shap:
+
+![Shap Summary Bar Version](images/shap_bar.png)
+
+**Comparison**
+
+* The top SHAP features are the same as the top features in original model/feature importances. 
+
+![Shap Summar Dot Version](images/shap_dot.png)
+
+**Interpretation:**
+
+* Higher #'s in item MRP feature cause higher sales and impact on model output. 
+* Higher #'s in Outlet Type Grocery Store have a negative impact on model output and cause lower sales. 
+* Higher #'s in supermarket type 3 features cause higher sales and impact on model output. 
+* For Supermarket Type 1 and Item_Visibility, both high and low #'s for the feature have a neutral impact on model output; lies at zero.
+
+## Local Explanations:
+
+**Examples: Lowest and highest sales**
+
+* Selected to see the differences in what influenced the model of the highest selling store and the lowest selling store.. are they the same features, did they influence in the same way, etc? 
+
+**High Sales LIME**
+
+![High Sales Example LIME](images/high_sales_lime.png)
+
+**Interpretation:**
+* For the highest selling example, Outlet Type Grocery Store and Item MRP had the largest positive influence. 
+* Supermarket Type 3 and Item type Breakfast had the largest negative influence. 
+
+**High Sales Force Plot:**
+
+![High Sales Example Force Plot](images/force_high.png)
+
+**Interpretation**
+* For the example with the highest sales, the red values with the wider bar include: OT Grocery Store = 0 and Item MRP. 
+* They push the prediction towards a greater value/ higher sales. 
+
+
+**Low Sales LIME**
+
+![Low Sales Example LIME](images/low_sales_lime.png)
+
+**Interpretation:**
+* For the lowest selling example, Outlet type Grocery Store and Item MRP had the most influence (negative). 
+* Outlet Supermarket Type 3 and Seafood also heavily (negatively) influenced predictions. 
+
+**Low Sales Force Plot:**
+
+![Low Sales Example Force Plot](images/force_low.png)
+
+**Interpreation**
+* For the example with the lowest sales, the blue values with the wider bar include: OT Grocery Store = 1 and Item MRP. 
+* They push the prediction towards a lower value/lower sales. 
